@@ -5,21 +5,29 @@ namespace KaiCSConsole.Classes
 {
     public class CConsoleBuilder
     {
+        string guid = Guid.NewGuid().ToString();
+        
         public CConsoleBuilder(string consolename, string []invokeargs)
         {
-            var guid = Guid.NewGuid();
-            string guifs = guid.ToString();
+            
             if (invokeargs.Contains("-v") || invokeargs.Contains("--verbose"))
             {
                 PrintManagerShortener shortener = new PrintManagerShortener();
-                shortener.print("console uuid is " + guifs);
+                shortener.print("console uuid is " + guid);
                 System.Threading.Thread.Sleep(2);
             }
 
         }
-        public void IConsoleBegin()
+        /// <summary>
+        /// Invokes the console.
+        ///
+        /// basically, it invokes the console system using a bunch of syscalls found in Classes/SSysCalls.cs 
+        /// </summary>
+        /// <param name="consolecommand"></param>
+        /// <param name="arguments"></param>
+        public void ConsoleIInvoke(string consolecommand, string []arguments)
         {
-            
+            Console.Write("using c# " + Environment.Version + " [" + guid + "]");
         }
     }
 }
