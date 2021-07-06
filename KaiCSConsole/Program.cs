@@ -31,10 +31,11 @@ namespace KaiCSConsole
 
             Thread.Sleep(1000);
             System.Console.Clear();
-            consoleBuilder.ConsoleIInvoke();
+            
             string base_c = Console.ReadLine();
             string []argv = base_c.Split(" ");
             string cmd = argv[0];
+            consoleBuilder.ConsoleIInvoke(cmd, argv);
         }
     }
 }
